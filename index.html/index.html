@@ -16,7 +16,6 @@
     background-color:white;
 	
     padding:5px;
-        line-height: 30px;
         text-align: center;
         overflow-x: scroll;
         overflow-y: scroll;
@@ -40,6 +39,10 @@
 	vertical-align: top;  
     height:600px;
 }
+
+
+
+
 	</style>
 	 <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -47,9 +50,12 @@
   href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 </head>
 
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <script src="js/swiper.min.js"></script>
                                                                                                                                                                                                                      
 
 <body>
+
 	<center>
 <div id="header">
     <h1><font style="font-size:55px">花 卷 卷<br>豆 包 包<br>汤 圆 圆</font></h1>
@@ -57,24 +63,35 @@
 
 
 
+
+
+
 <div id="nav">
-<nobr>
+
+		<div class="swiper-container" id="swiper-container">
+	<div class="swiper-wrapper">
+		<div class="swiper-slide blue-slide">
     <img src="LazyHuaJuan.png "height="150"/>
+			</div>
+		<div class="swiper-slide red-slide">
     <img src="DouTang.png "height="150"/> 
+			</div>
+		<div class="swiper-slide orange-slide">
     <img src="TangDou.png "height="150"/>
-    <img src="LazyHuaJuan.png "height="150"/>
-    <img src="DouTang.png "height="150"/> 
-    <img src="TangDou.png "height="150"/>
-    <img src="LazyHuaJuan.png "height="150"/>
-    <img src="DouTang.png "height="150"/> 
-    <img src="TangDou.png "height="150"/>
-    <img src="LazyHuaJuan.png "height="150"/>
-    <img src="DouTang.png "height="150"/> 
-    <img src="TangDou.png "height="150"/>
-	</nobr>
-		</div>
-	
-	
+			</div>
+	</div>
+</div>
+<script language="javascript"> 
+var mySwiper = new Swiper('.swiper-container',{
+autoplay :true,
+})
+</script>
+
+</div>
+
+
+
+
 	
 <div id="footer">
 <div id="section">
