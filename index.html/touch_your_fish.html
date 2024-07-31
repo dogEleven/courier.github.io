@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>摸鱼计价器</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            text-align: center;
+            width: 300px;
+        }
+
+        h1 {
+            font-size: 1.5em;
+            color: #4CAF50;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s;
+        }
+
+            button:hover {
+                background-color: #45a049;
+            }
+
+        .result {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #333;
+        }
+
+        .decor {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>摸鱼计价器</h1>
+        <input type="number" id="salary" placeholder="请输入您的月薪" />
+        <button onclick="startTimer()">开始</button>
+        <div class="result" id="result">摸鱼所得: ¥0.00</div>
+    </div>
+
+    <script>
+        let timer;
+        let secondsElapsed = 0;
+        let earnings = 0;
+
+        function startTimer() {
+            const salary = document.getElementById('salary').value;
+            if (!salary) {
+                alert('请填写月薪');
+                return;
+            }
+
+            const workingHoursPerMonth = 160; // 每月工作160小时
+            const hourlyRate = salary / workingHoursPerMonth; // 每小时工资
+
+            // 重置计时器
+            secondsElapsed = 0;
+            earnings = 0;
+
+            // 每100毫秒更新收入
+            clearInterval(timer);
+            timer = setInterval(() => {
+                secondsElapsed += 0.1; // 每100毫秒增加0.1秒
+                earnings = hourlyRate * (secondsElapsed / 3600); // 根据时间更新收入
+                document.getElementById('result').innerText =
+                    `摸鱼所得: ¥${earnings.toFixed(2)}`;
+            }, 100);
+        }
+    </script>
+</body>
+</html>
