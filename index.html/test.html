@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>干净的HTML页面</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #66CCFF; /* 修改背景颜色 */
+        }
+
+        img {
+            width: 33%; /* 将标题图自适应窗口宽度 */
+            height: auto;
+        }
+
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .button {
+            width: 200px; /* 固定宽度 */
+            aspect-ratio: 1; /* 强制按钮为方形 */
+            margin: 10px; /* 按钮间距 */
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            line-height: 200px; /* 使文字垂直居中 */
+            font-size: 24px;
+            text-decoration: none;
+            border-radius: 10px; /* 按钮圆角 */
+            transition: background-color 0.3s; /* 背景色变化效果 */
+            background-size: cover; /* 图片尺寸适应按钮 */
+            background-position: center; /* 图片居中显示 */
+        }
+
+            .button:hover {
+                background-color: #0056b3; /* 悬停时背景颜色 */
+            }
+
+        .button-1 {
+            background-image: url("Photo/Calobara.png"); /* 替换为你的图片URL */
+        }
+
+        .button-2 {
+            background-image: url("Photo/PiggyGambitDark.png"); /* 替换为你的图片URL */
+        }
+
+        .button-3 {
+            background-image: url("Photo/Life7_ICON.png"); /* 替换为你的图片URL */
+        }
+
+        /* 添加更多按钮样式 */
+
+        @media (max-width: 768px) {
+            .button {
+                /*width: 100%;*/ /* 小屏幕时使用90%的宽度 */
+                line-height: normal; /* 取消按钮文字垂直居中，使用flexbox来居中 */
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .button {
+                /*width: 100%;*/ /* 超小屏幕时使用90%的宽度 */
+                line-height: normal; /* 取消按钮文字垂直居中，使用flexbox来居中 */
+                font-size: 20px; /* 调整字体大小 */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <img src="Photo/TofuSoup白.png" alt="标题图像">
+
+    <div class="button-container">
+        <a href="https://apps.apple.com/cn/app/%E4%BA%BA%E7%94%9F7%E4%BA%8B/id1669791391" class="button button-3"></a>
+        <a href="https://apps.apple.com/cn/app/%E5%8D%A1%E8%B7%AF%E7%8B%B8/id6502399166" class="button button-1"></a>
+        <a href="https://store.steampowered.com/app/1340920/_/" class="button button-2"></a>
+    </div>
+
+</body>
+</html>
