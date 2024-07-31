@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -48,6 +49,8 @@
             cursor: pointer;
             font-size: 1em;
             transition: background-color 0.3s;
+            width: 100%;
+            margin-top: 10px;
         }
 
             button:hover {
@@ -60,17 +63,37 @@
             color: #333;
         }
 
-        .decor {
-            margin-top: 20px;
+            .result span {
+                display: block; /* 使数字在新行上显示 */
+                font-size: 1.5em; /* 调整数字的字体大小 */
+                margin-top: 10px; /* 在获取数字的上方加上空白 */
+            }
+
+        .more-content {
+            margin-top: 30px; /* 上方空出一行的空间 */
+            color: #007BFF; /* 设置文本颜色为淡蓝色 */
+            text-decoration: none; /* 去掉下划线 */
+            font-size: 1em; /* 设置字体大小 */
+            display: inline-block; /* 使其能够使用margin */
         }
+
+            .more-content:hover {
+                text-decoration: underline; /* 鼠标悬停时显示下划线 */
+            }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h1>摸鱼计价器</h1>
         <input type="number" id="salary" placeholder="请输入您的月薪" />
         <button onclick="startTimer()">开始</button>
-        <div class="result" id="result">摸鱼所得: ¥0.00</div>
+        <div class="result" id="result">
+            摸鱼所得:
+            <br> <!-- 添加空行 -->
+            <span id="earning-amount">¥ 0.00</span> <!-- 将数字放在新行 -->
+        </div>
+        <a href="javascript:void(0);" onclick="window.history.back()" class="more-content">更多内容</a>
     </div>
 
     <script>
@@ -97,10 +120,11 @@
             timer = setInterval(() => {
                 secondsElapsed += 0.1; // 每100毫秒增加0.1秒
                 earnings = hourlyRate * (secondsElapsed / 3600); // 根据时间更新收入
-                document.getElementById('result').innerText =
-                    `摸鱼所得: ¥${earnings.toFixed(2)}`;
+                document.getElementById('earning-amount').innerText =
+                    `¥ ${earnings.toFixed(2)}`; // ¥ 后面加个空格
             }, 100);
         }
     </script>
 </body>
+
 </html>
