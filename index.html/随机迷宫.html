@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生成迷宫</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            overflow: auto; /* 允许滚动 */
+        }
+        .maze {
+            display: grid;
+            margin-top: 10px; 
+        }
+        .cell {
+            width: 10px;  /* 每个单元格的宽度 */
+            height: 10px; /* 每个单元格的高度 */
+        }
+        .wall {
+            background-color: black;
+        }
+        .path {
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+
+<label for="mazeSize">选择迷宫尺寸 (10-100)：</label>
+<input type="range" id="mazeSize" min="10" max="100" value="21" />
+<span id="sizeDisplay">21</span> <!-- 显示当前选择的尺寸 -->
+
+<div class="maze" id="maze"></div>
+
+<script>
+    function generateMaze(width, height) {
+        const maze = Array.from({ length: height }, () => Array(width).fill('#')); // 初始化迷宫
+
+        const directions = [
+            { x: 0, y: -2 },  // 上
+            { x: 2, y: 0 },   // 右
+            { x: 0, y: 2 },   // 下
+            { x: -2, y: 0 }   // 左
+        ];
+
+        function visit(x, y) {
+            maze[y][x] = ' '; // 标记为路径
+            
+            directions.sort(() => Math.random() - 0.5); // 随机打乱方向
+
+            for (const { x: dx, y: dy } of directions) {
+                const nx = x + dx;
+                const ny = y + dy;
+
+                // 检查是否越界，以及是否为墙壁
+                if (nx >= 0 && ny >= 0 && nx < width && ny < height && maze[ny][nx] === '#') {
+                    maze[y + dy / 2][x + dx / 2] = ' '; // 打通墙壁
+                    visit(nx, ny); // 递归访问
+                }
+            }
+        }
+
+        visit(1, 1); // 从 (1, 1) 开始生成迷宫
+        return maze;
+    }
+
+    function drawMaze(maze) {
+        const mazeElement = document.getElementById('maze');
+        mazeElement.innerHTML = ''; // 清空现有迷宫
+        mazeElement.style.gridTemplateColumns = `repeat(${maze[0].length}, 10px)`; // 更新网格列样式
+        mazeElement.style.gridTemplateRows = `repeat(${maze.length}, 10px)`; // 更新网格行样式
+
+        maze.forEach(row => {
+            row.forEach(cell => {
+                const div = document.createElement('div');
+                div.className = 'cell ' + (cell === '#' ? 'wall' : 'path');
+                mazeElement.appendChild(div);
+            });
+        });
+    }
+
+    function updateMaze() {
+        // 确保尺寸为奇数，并更新显示
+        const size = Math.floor(parseInt(document.getElementById('mazeSize').value));
+        const mazeSize = size % 2 === 0 ? size - 1 : size; // 处理为奇数
+        document.getElementById('sizeDisplay').textContent = mazeSize; // 更新显示
+        const maze = generateMaze(mazeSize, mazeSize); // 生成 mazeSize x mazeSize 的迷宫
+        drawMaze(maze);
+    }
+
+    // 监听滑动条输入事件
+    document.getElementById('mazeSize').addEventListener('input', updateMaze);
+
+    // 初始化迷宫
+    updateMaze();
+</script>
+
+</body>
+</html>
