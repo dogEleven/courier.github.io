@@ -12,11 +12,11 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            background-color: rgba(255, 255, 255, 0.95); /* 修改背景颜色 */
+            background-color: rgba(255, 255, 255, 0.95);
         }
 
         img {
-            width: 33%; /* 将标题图自适应窗口宽度 */
+            width: 33%;
             height: auto;
         }
 
@@ -28,47 +28,44 @@
         }
 
         .button {
-            width: 200px; /* 固定宽度 */
-            aspect-ratio: 1; /* 强制按钮为方形 */
-            margin: 10px; /* 按钮间距 */
+            width: 200px;
+            aspect-ratio: 1;
+            margin: 10px;
             background-color: #007bff;
             color: white;
             text-align: center;
-            line-height: 200px; /* 使文字垂直居中 */
+            line-height: 200px;
             font-size: 24px;
             text-decoration: none;
-            border-radius: 10px; /* 按钮圆角 */
-            transition: background-color 0.3s; /* 背景色变化效果 */
-            background-size: cover; /* 图片尺寸适应按钮 */
-            background-position: center; /* 图片居中显示 */
+            border-radius: 10px;
+            transition: background-color 0.3s;
+            background-size: cover;
+            background-position: center;
         }
 
             .button:hover {
-                background-color: #0056b3; /* 悬停时背景颜色 */
+                background-color: #0056b3;
             }
 
         .button-1 {
-            background-image: url("Photo/Calobara.png"); /* 替换为你的图片URL */
+            background-image: url("Photo/Calobara.png");
         }
 
         .button-2 {
-            background-image: url("Photo/PiggyGambitDark.png"); /* 替换为你的图片URL */
+            background-image: url("Photo/PiggyGambitDark.png");
         }
 
         .button-3 {
-            background-image: url("Photo/Life7_ICON.png"); /* 替换为你的图片URL */
+            background-image: url("Photo/Life7_ICON.png");
         }
 
         .button-BiuBiuBiu {
-            background-image: url("Photo/BiuBiuBiu.png"); /* 替换为你的图片URL */
+            background-image: url("Photo/BiuBiuBiu.png");
         }
-
-        /* 添加更多按钮样式 */
 
         @media (max-width: 768px) {
             .button {
-                /*width: 100%;*/ /* 小屏幕时使用90%的宽度 */
-                line-height: normal; /* 取消按钮文字垂直居中，使用flexbox来居中 */
+                line-height: normal;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -77,11 +74,26 @@
 
         @media (max-width: 480px) {
             .button {
-                /*width: 100%;*/ /* 超小屏幕时使用90%的宽度 */
-                line-height: normal; /* 取消按钮文字垂直居中，使用flexbox来居中 */
-                font-size: 20px; /* 调整字体大小 */
+                line-height: normal;
+                font-size: 20px;
             }
         }
+
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 16px;
+            color: #555;
+        }
+
+            .footer a {
+                color: #007bff;
+                text-decoration: none;
+            }
+
+                .footer a:hover {
+                    text-decoration: underline;
+                }
     </style>
 </head>
 <body>
@@ -93,6 +105,11 @@
         <a href="https://apps.apple.com/cn/app/%E5%8D%A1%E8%B7%AF%E7%8B%B8/id6502399166" class="button button-1"></a>
         <a href="https://apps.apple.com/cn/app/%E4%BA%BA%E7%94%9F7%E4%BA%8B/id1669791391" class="button button-3"></a>
         <a href="https://store.steampowered.com/app/1340920/_/" class="button button-2"></a>
+    </div>
+
+    <div class="footer">
+        <p>Connect: <a href="mailto:courier1928@gmail.com">courier1928@gmail.com</a></p>
+        <p><a href="https://tofusoup.cc/index.html/privacypolicycn.html">Privacy</a></p>
     </div>
 
 </body>
