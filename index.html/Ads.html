@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>精品应用推荐</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            display: grid;
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* 竖屏布局 */
+        @media (orientation: portrait) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* 横屏布局 */
+        @media (orientation: landscape) {
+            .container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* 修复卡片容器样式 */
+        .app-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            /* 新增边框效果 */
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+            .app-card:hover {
+                transform: translateY(-5px);
+            }
+
+        /* 优化图标容器 */
+        .app-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            margin-bottom: 1.5rem;
+            object-fit: contain;
+            /* 调整背景渐变 */
+            background: linear-gradient(45deg, #6b48ff, #00a8ff);
+            padding: 8px;
+            /* 新增容器阴影 */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .app-title {
+            font-size: 1.4rem;
+            color: #2d3436;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .app-description {
+            color: #636e72;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .download-btn {
+            background: linear-gradient(45deg, #6c5ce7, #a363d9);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            width: fit-content;
+        }
+
+            .download-btn:hover {
+                box-shadow: 0 5px 15px rgba(108, 92, 231, 0.4);
+                transform: translateY(-2px);
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="app-card">
+            <img class="app-icon" src="Photo/BiuBiuBiu.png" alt="相机应用图标">
+            <h2 class="app-title">BiuBiuBiu - 空气枪</h2>
+            <p class="app-description">手表军火库</p>
+            <a href="https://apps.apple.com/cn/app/biubiubiu-%E7%A9%BA%E6%B0%94%E6%9E%AA/id6448477521" class="download-btn" target="_blank">去看看</a>
+        </div>
+
+        <div class="app-card">
+            <img class="app-icon" src="Photo/Calobara.png" alt="阅读应用图标">
+            <h2 class="app-title">卡路狸 - 轻健身记录</h2>
+            <p class="app-description">运动一次获得装饰</p>
+            <a href="https://apps.apple.com/cn/app/%E5%8D%A1%E8%B7%AF%E7%8B%B8/id6502399166" class="download-btn" target="_blank">去看看</a>
+        </div>
+
+        <div class="app-card">
+            <img class="app-icon" src="Photo/Suona.png" alt="睡眠应用图标">
+            <h2 class="app-title">电音唢呐 - 手表乐器</h2>
+            <p class="app-description">手表乐器</p>
+            <a href="https://apps.apple.com/cn/app/%E7%94%B5%E9%9F%B3%E5%94%A2%E5%91%90/id6474126791" class="download-btn" target="_blank">去看看</a>
+        </div>
+    </div>
+</body>
+</html>
