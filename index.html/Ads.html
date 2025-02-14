@@ -14,15 +14,18 @@
 
         body {
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            min-height: 100vh;
+            min-height: 100vh; /* 确保body至少占据整个视口高度 */
             padding: 20px;
+            display: flex; /* 使用 Flexbox 布局 */
+            justify-content: center; /* 水平居中 */
+            align-items: center; /* 垂直居中 */
         }
 
         .container {
             display: grid;
             gap: 1.5rem;
             max-width: 1200px;
-            margin: 0 auto;
+            /* margin: 0 auto;  删除这行 */
         }
 
         /* 竖屏布局 */
@@ -60,18 +63,27 @@
             }
 
         /* 优化图标容器 */
-        .app-icon {
-            width: 80px;
+        .app-icon-container { /* 创建一个容器 */
+            width: 80px; /* 容器的尺寸与图标一致 */
             height: 80px;
             border-radius: 20px;
             margin-bottom: 1.5rem;
-            object-fit: contain;
-            /* 调整背景渐变 */
-            background: linear-gradient(45deg, #6b48ff, #00a8ff);
-            padding: 8px;
-            /* 新增容器阴影 */
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 12px rgba(0, 0, 0, 0.2); /* 淡模糊阴影 */
+            display: flex; /* 使用 Flexbox 居中 */
+            align-items: center;
+            justify-content: center;
         }
+
+        .app-icon {
+            /* width: 80px;  容器定义了尺寸，image不需要定义 */
+            /* height: 80px;*/
+            border-radius: 20px; /* 可以省略，容器已经有圆角 */
+            object-fit: contain; /* image在容器内的填充方式 */
+            clip-path: inset(0 round 20px); /* 与borderRadius保持一致  */
+            max-width: 100%; /* 确保图片不超过容器 */
+            max-height: 100%;
+        }
+
 
         .app-title {
             font-size: 1.4rem;
@@ -108,21 +120,28 @@
 <body>
     <div class="container">
         <div class="app-card">
-            <img class="app-icon" src="Photo/BiuBiuBiu.png" alt="相机应用图标">
+            <div class="app-icon-container">
+                <!-- 使用容器包裹图片 -->
+                <img class="app-icon" src="Photo/BiuBiuBiu.png" alt="相机应用图标">
+            </div>
             <h2 class="app-title">BiuBiuBiu - 空气枪</h2>
             <p class="app-description">手表军火库</p>
             <a href="https://apps.apple.com/cn/app/biubiubiu-%E7%A9%BA%E6%B0%94%E6%9E%AA/id6448477521" class="download-btn" target="_blank">去看看</a>
         </div>
 
         <div class="app-card">
-            <img class="app-icon" src="Photo/Calobara.png" alt="阅读应用图标">
+            <div class="app-icon-container">
+                <img class="app-icon" src="Photo/Calobara.png" alt="阅读应用图标">
+            </div>
             <h2 class="app-title">卡路狸 - 轻健身记录</h2>
-            <p class="app-description">运动一次获得装饰</p>
+            <p class="app-description">运动收集装饰</p>
             <a href="https://apps.apple.com/cn/app/%E5%8D%A1%E8%B7%AF%E7%8B%B8/id6502399166" class="download-btn" target="_blank">去看看</a>
         </div>
 
         <div class="app-card">
-            <img class="app-icon" src="Photo/Suona.png" alt="睡眠应用图标">
+            <div class="app-icon-container">
+                <img class="app-icon" src="Photo/Suona.png" alt="睡眠应用图标">
+            </div>
             <h2 class="app-title">电音唢呐 - 手表乐器</h2>
             <p class="app-description">手表乐器</p>
             <a href="https://apps.apple.com/cn/app/%E7%94%B5%E9%9F%B3%E5%94%A2%E5%91%90/id6474126791" class="download-btn" target="_blank">去看看</a>
