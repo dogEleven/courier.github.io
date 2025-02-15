@@ -1,10 +1,12 @@
 ﻿<!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>精品应用推荐</title>
+    <title id="page-title">TofuSoup</title>
     <style>
+        /* 样式代码保持不变 */
         * {
             margin: 0;
             padding: 0;
@@ -14,36 +16,32 @@
 
         body {
             background: linear-gradient(to right, #ffffff, #f0f0f0 20%, #ffffff);
-            /*background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);*/
-            min-height: 100vh; /* 确保body至少占据整个视口高度 */
+            min-height: 100vh;
             padding: 20px;
-            display: flex; /* 使用 Flexbox 布局 */
-            justify-content: center; /* 水平居中 */
-            align-items: center; /* 垂直居中 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
         }
 
         .container {
             display: grid;
             gap: 1.5rem;
             max-width: 1200px;
-            /* margin: 0 auto;  删除这行 */
         }
 
-        /* 竖屏布局 */
         @media (orientation: portrait) {
             .container {
                 grid-template-columns: 1fr;
             }
         }
 
-        /* 横屏布局 */
         @media (orientation: landscape) {
             .container {
                 grid-template-columns: repeat(3, 1fr);
             }
         }
 
-        /* 修复卡片容器样式 */
         .app-card {
             background: rgba(255, 255, 255, 0.95);
             border-radius: 15px;
@@ -55,7 +53,6 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
-            /* 新增边框效果 */
             border: 1px solid rgba(255, 255, 255, 0.3);
         }
 
@@ -63,25 +60,21 @@
                 transform: translateY(-5px);
             }
 
-        /* 优化图标容器 */
-        .app-icon-container { /* 创建一个容器 */
-            width: 80px; /* 容器的尺寸与图标一致 */
+        .app-icon-container {
+            width: 80px;
             height: 80px;
             border-radius: 20px;
             margin-bottom: 1.5rem;
-            box-shadow: 0 0 12px rgba(0, 0, 0, 0.2); /* 淡模糊阴影 */
-            display: flex; /* 使用 Flexbox 居中 */
+            box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+            display: flex;
             align-items: center;
             justify-content: center;
         }
 
         .app-icon {
-            /* width: 80px;  容器定义了尺寸，image不需要定义 */
-            /* height: 80px;*/
-            border-radius: 20px; /* 可以省略，容器已经有圆角 */
-            object-fit: contain; /* image在容器内的填充方式 */
-            clip-path: inset(0 round 20px); /* 与borderRadius保持一致  */
-            max-width: 100%; /* 确保图片不超过容器 */
+            object-fit: contain;
+            clip-path: inset(0 round 20px);
+            max-width: 100%;
             max-height: 100%;
         }
 
@@ -118,35 +111,138 @@
             }
     </style>
 </head>
+
 <body>
     <div class="container">
         <div class="app-card">
             <div class="app-icon-container">
-                <!-- 使用容器包裹图片 -->
                 <img class="app-icon" src="Photo/BiuBiuBiu.png" alt="相机应用图标">
             </div>
-            <h2 class="app-title">BiuBiuBiu 空气枪</h2>
-            <p class="app-description">手表军火库</p>
-            <a href="https://apps.apple.com/cn/app/biubiubiu-%E7%A9%BA%E6%B0%94%E6%9E%AA/id6448477521" class="download-btn" target="_blank">去看看</a>
+            <h2 class="app-title" id="biu-title">BiuBiuBiu 空气枪</h2>
+            <p class="app-description" id="biu-desc">手表军火库</p>
+            <a href="https://apps.apple.com/cn/app/biubiubiu-%E7%A9%BA%E6%B0%94%E6%9E%AA/id6448477521" class="download-btn" target="_blank"
+               id="biu-link-text">去看看</a>
         </div>
 
         <div class="app-card">
             <div class="app-icon-container">
                 <img class="app-icon" src="Photo/Calobara.png" alt="阅读应用图标">
             </div>
-            <h2 class="app-title">卡路狸 轻健身记录</h2>
-            <p class="app-description">运动收集装饰</p>
-            <a href="https://apps.apple.com/cn/app/%E5%8D%A1%E8%B7%AF%E7%8B%B8/id6502399166" class="download-btn" target="_blank">去看看</a>
+            <h2 class="app-title" id="cal-title">卡路狸 轻健身记录</h2>
+            <p class="app-description" id="cal-desc">运动收集装饰</p>
+            <a href="https://apps.apple.com/cn/app/%E5%8D%A1%E8%B7%AF%E7%8B%B8/id6502399166" class="download-btn" target="_blank"
+               id="cal-link-text">去看看</a>
         </div>
 
         <div class="app-card">
             <div class="app-icon-container">
                 <img class="app-icon" src="Photo/Suona.png" alt="睡眠应用图标">
             </div>
-            <h2 class="app-title">电音唢呐 手表乐器</h2>
-            <p class="app-description">手表乐器</p>
-            <a href="https://apps.apple.com/cn/app/%E7%94%B5%E9%9F%B3%E5%94%A2%E5%91%90/id6474126791" class="download-btn" target="_blank">去看看</a>
+            <h2 class="app-title" id="suo-title">电音唢呐 手表乐器</h2>
+            <p class="app-description" id="suo-desc">手表乐器</p>
+            <a href="https://apps.apple.com/cn/app/%E7%94%B5%E9%9F%B3%E5%94%A2%E5%91%90/id6474126791" class="download-btn" target="_blank"
+               id="suo-link-text">去看看</a>
         </div>
     </div>
+
+    <script>
+        // 语言配置文件
+        const translations = {
+            'zh-CN': {
+                'page-title': '豆花汤',
+                'biu-title': 'BiuBiuBiu 空气枪',
+                'biu-desc': '手表军火库',
+                'biu-link-text': '去看看',
+                'cal-title': '卡路狸 轻健身记录',
+                'cal-desc': '运动收集装饰',
+                'cal-link-text': '去看看',
+                'suo-title': '电音唢呐 手表乐器',
+                'suo-desc': '手表乐器',
+                'suo-link-text': '去看看'
+            },
+            'en-US': {
+                'page-title': 'TofuSoup',
+                'biu-title': 'PewPewPew FingerGun',
+                'biu-desc': 'Watch Armory',
+                'biu-link-text': 'View',
+                'cal-title': 'Calobara Fitness Tracker',
+                'cal-desc': 'Collect and Decorate Exercise',
+                'cal-link-text': 'View',
+                'suo-title': 'Electronic Suona Watch Instrument',
+                'suo-desc': 'Watch Instrument',
+                'suo-link-text': 'View'
+            },
+            'ja-JP': {
+                'page-title': '豆腐スープ',
+                'biu-title': 'PanPan 空気銃',
+                'biu-desc': '腕時計武器庫',
+                'biu-link-text': '見る',
+                'cal-title': 'カロバラ 軽フィットネス記録',
+                'cal-desc': '運動を収集して飾る',
+                'cal-link-text': '見る',
+                'suo-title': '電子唢呐 腕時計楽器',
+                'suo-desc': '腕時計楽器',
+                'suo-link-text': '見る'
+            },
+            'zh-TW': {
+                'page-title': '豆腐湯',
+                'biu-title': 'PengPeng 空氣槍',
+                'biu-desc': '手錶軍火庫',
+                'biu-link-text': '去看看',
+                'cal-title': '卡路狸 輕健身記錄',
+                'cal-desc': '運動收集裝飾',
+                'cal-link-text': '去看看',
+                'suo-title': '電音嗩吶 手錶樂器',
+                'suo-desc': '手錶樂器',
+                'suo-link-text': '去看看'
+            }
+        };
+
+        // 获取用户系统语言
+        function getUserLanguage() {
+            let lang = navigator.language || navigator.userLanguage; // 兼容不同的浏览器
+            // 简化语言代码，只取前两个字符 (例如: 'zh' 而不是 'zh-CN')
+            lang = lang.substring(0, 2);
+
+            const supportedLanguages = Object.keys(translations).map(key => key.substring(0, 2));
+
+            if (supportedLanguages.includes(lang)) {
+                //如果用户的系统语言是zh，我们默认使用zh-CN,你可以修改成其它的
+                if (lang == 'zh') {
+                    return 'zh-CN'
+                }
+                for (const key in translations) {
+                    if (key.substring(0, 2) == lang) {
+                        return key;
+                    }
+                }
+            } else {
+                return 'en-US'; // 默认英语
+            }
+        }
+
+        // 应用本地化
+        function applyLocalization(language) {
+            const langData = translations[language] || translations['en-US']; // 默认英语
+
+            for (const key in langData) {
+                const element = document.getElementById(key);
+                if (element) {
+                    element.textContent = langData[key];
+                }
+            }
+
+            // 设置 HTML lang 属性
+            document.documentElement.lang = language;
+        }
+
+
+        // 页面加载时应用本地化
+        document.addEventListener('DOMContentLoaded', () => {
+            const language = getUserLanguage();
+            applyLocalization(language);
+        });
+    </script>
 </body>
+
 </html>
